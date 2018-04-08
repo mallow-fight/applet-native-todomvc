@@ -1,0 +1,4 @@
+.completeText{
+  text-decoration: line-through;
+  color: skyblue;
+}

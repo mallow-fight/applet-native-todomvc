@@ -1,0 +1,16 @@
+<view>
+  <input 
+  placeholder="添加任务项"
+  bindinput="bindTodoThing"
+  />
+  <button size="mini" bindtap="addTodoThing">添加</button>
+  <view wx:for="{{todos}}" wx:key="todo.id" wx:for-item="todo">
+      <input 
+      value="{{todo.title}}"
+      data-todo="{{todo}}"
+      bindinput="editTodoThing"
+      class="{{todo.completed ? 'completeText' : ''}}" />
+      <button id="{{todo.id}}" size="mini" data-todo-completed="{{todo.completed}}" type="primary" class="todoComplete" bindtap="toggleTodo">{{ todo.completed ? '已完成' : '未完成' }}</button>
+      <button id="{{todo.id}}" size="mini" type="warn" class="todoRemove" bindtap="removeTodo">移除</button>
+  </view>
+</view>
