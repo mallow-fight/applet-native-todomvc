@@ -2,6 +2,7 @@
   <input 
   placeholder="添加任务项"
   bindinput="bindTodoThing"
+  value="{{todoThing.title}}"
   />
   <button size="mini" bindtap="addTodoThing">添加</button>
   <view wx:for="{{todos}}" wx:key="todo.id" wx:for-item="todo">

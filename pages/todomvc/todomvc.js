@@ -39,7 +39,10 @@ Page({
     const that = this
     addTodo(function(addTodo) {
       that.setData({
-        todos: [addTodo].concat(that.data.todos)
+        todos: [addTodo].concat(that.data.todos),
+        todoThing: {
+          title: ''
+        }
       })
     }, todoThing)
   },
@@ -59,11 +62,11 @@ Page({
       that.cutTodos(data.id)
     }, {id: e.currentTarget.id})
   },
-  toggleTodoCompleted: function(id) {
+  synchroTodo: function(data) {
     const todos = this.data.todos
     for(var i = 0; i < todos.length; i++) {
-      if(todos[i].id === id) {
-        todos[i].completed = !todos[i].completed
+      if(todos[i].id === data.id) {
+        todos[i] = data
         this.setData({
           todos: todos
         })
@@ -74,13 +77,14 @@ Page({
   toggleTodo: function(e) {
     const that = this
     updateTodo(function(data) {
-      that.toggleTodoCompleted(data.id)
+      that.synchroTodo(data)
     }, {id: e.currentTarget.id, completed: !e.currentTarget.dataset.todoCompleted})
   },
   editTodoThing: function(e) {
+    const that = this
     const todo = e.currentTarget.dataset.todo
     updateTodo(function(data) {
-      console.log('updated:', data)
+      that.synchroTodo(data)
     }, {id: todo.id, title: e.detail.value})
   }
 })
