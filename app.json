@@ -1,8 +1,6 @@
 {
   "pages":[
-    "pages/todomvc/todomvc",    
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/todomvc/todomvc"
   ],
   "window":{
     "backgroundTextStyle":"light",

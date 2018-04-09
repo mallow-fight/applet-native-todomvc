@@ -29,16 +29,12 @@ Page({
   addTodoThing: function() {
     const todoThing = this.data.todoThing
     const title = this.data.todoThing.title
-    if (!title || !title.length) {
-      return wx.showToast({
-        icon: 'none',
-        title: '输入不能为空!'
-      })
-    }
-    const that = this
-    addTodo(function(addTodo) {
-      that.setData({
-        todos: [addTodo].concat(that.data.todos),
+    return !title || !title.length ? wx.showToast({
+      icon: 'none',
+      title: '输入不能为空!'
+    }) : addTodo( addTodo => {
+      this.setData({
+        todos: [addTodo].concat(this.data.todos),
         todoThing: {
           title: ''
         }
@@ -48,8 +44,7 @@ Page({
   cutTodos: function(id) {
     const nextTodos = []
     this.data.todos.map(todo => {
-      if(todo.id === id) return;
-      return nextTodos.push(todo)
+      return todo.id === id ? false : nextTodos.push(todo)
     })
     this.setData({
       todos: nextTodos
