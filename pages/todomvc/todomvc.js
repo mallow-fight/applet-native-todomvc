@@ -12,9 +12,8 @@ Page({
     }
   },
   onLoad: function () {
-    const that = this
-    getTodoList(function(todos) {
-      that.setData({
+    getTodoList( todos => {
+      this.setData({
         todos: todos.reverse()
       })
     })
@@ -57,9 +56,8 @@ Page({
     })
   },
   removeTodo: function(e) {
-    const that = this
-    deleteTodo(function(data) {
-      that.cutTodos(data.id)
+    deleteTodo( data => {
+      this.cutTodos(data.id)
     }, {id: e.currentTarget.id})
   },
   synchroTodo: function(data) {
@@ -75,16 +73,14 @@ Page({
     }
   },
   toggleTodo: function(e) {
-    const that = this
-    updateTodo(function(data) {
-      that.synchroTodo(data)
+    updateTodo( data => {
+      this.synchroTodo(data)
     }, {id: e.currentTarget.id, completed: !e.currentTarget.dataset.todoCompleted})
   },
   editTodoThing: function(e) {
-    const that = this
     const todo = e.currentTarget.dataset.todo
-    updateTodo(function(data) {
-      that.synchroTodo(data)
+    updateTodo( data => {
+      this.synchroTodo(data)
     }, {id: todo.id, title: e.detail.value})
   }
 })
