@@ -1,0 +1,36 @@
+<view>
+  <!-- swiper width: 100% -->
+  <swiper class="fill-width" indicator-dots autoplay circular interval="{{3000}}">
+    <block wx:for="{{carousel}}" wx:key="id">
+      <swiper-item>
+        <!-- swiper image width: 100% height: xxrpx -->
+        <image 
+          src="{{item.picurl}}" 
+          alt="{{item.name}}" 
+          class="fill-width slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="theme" />
+  
+  <image
+    wx:for="{{theme}}" 
+    wx:key="id"
+    class="theme-image"
+    src="{{item.smallpic}}" 
+    title="{{item.name}}" 
+    alt="{{item.name}}" />
+
+  <view class="selection" />
+
+  <view wx:for="{{selection}}" wx:key="id">
+    <image
+      class="selection-image"
+      src="{{item.goodspics}}"
+      title="{{item.reason}}"
+      alt="{{item.reason}}"
+    />
+    <text class="selection-text">{{item.title}}</text>
+  </view>
+</view>

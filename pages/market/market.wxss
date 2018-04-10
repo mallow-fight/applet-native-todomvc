@@ -1,0 +1,51 @@
+@import '../../common.wxss';
+.slide-image{
+  height: 320rpx;
+}
+.theme, .selection{
+  height: 60rpx;
+  width: 20rpx;
+  margin-top: 20rpx;
+  background: yellow;
+  margin-bottom: 20rpx;
+}
+.theme::after, .selection::after{
+  /* position: absolute;
+  display: inline-block; */
+  display: block;
+  font-size: 40rpx;
+  line-height: 60rpx;
+  text-align: right;
+  font-weight: 800;
+}
+.theme::after{
+  width: 150rpx;  
+  content: '主题馆';  
+}
+.selection::after{
+  width: 190rpx;  
+  content: '环球精选';
+}
+.theme-image{
+  display: inline-block;
+  height: 240rpx;
+  width: 48.5%;
+  margin-left: 1%;
+}
+.selection-image{
+  width: 90%;
+  height: 480rpx;
+  margin-left: 5%;
+  box-shadow: 1rpx 1rpx 10rpx 1rpx gray;
+}
+.selection-text{
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 10rpx;
+  text-align: center;
+  color: gray;
+  font-size: 40rpx;
+  font-weight: 600;
+}

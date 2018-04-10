@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/market/market",  
     "pages/todomvc/todomvc"
   ],
   "window":{
@@ -7,5 +8,22 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#f9f027",
+    "borderStyle": "white",
+    "backgroundColor": "#292929",
+    "list": [{
+      "pagePath": "pages/todomvc/todomvc",
+      "iconPath": "assets/footer-icon-01.png",
+      "selectedIconPath": "assets/footer-icon-01-active.png",
+      "text": "todomvc"
+    }, {
+      "pagePath": "pages/market/market",
+      "iconPath": "assets/footer-icon-02.png",
+      "selectedIconPath": "assets/footer-icon-02-active.png",
+      "text": "market"
+    }]
   }
 }
